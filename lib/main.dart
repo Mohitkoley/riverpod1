@@ -9,7 +9,7 @@ void main() {
 
 final helloWorldProvider = Provider((ref) => "Hello world");
 
-final counterProvider = StateProvider((ref) => 0);
+final counterStateProvider = StateProvider((ref) => 0);
 
 final apiData = FutureProvider.autoDispose<List<TodoModel>>((ref) async {
   try {
@@ -72,8 +72,8 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final number = ref.watch(counterProvider);
-    final call = ref.read(counterProvider.notifier);
+    final number = ref.watch(counterStateProvider);
+    final call = ref.read(counterStateProvider.notifier);
 
     // TODO: implement build
     return SafeArea(
